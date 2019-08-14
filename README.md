@@ -1,29 +1,31 @@
-# fluidform
+﻿
+# vue-fluid-form
+ Easy making of dynamic forms using [Vuejs](https://vuejs.org/).
 
-## Project setup
-```
-npm install
-```
+## Getting started
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Set up everything
 
-### Compiles and minifies for production
-```
-npm run build
-```
+``comand``
 
-### Run your tests
+## Usage
+JavaScript
+```Javascript
+import JavaScriptCode;
+var example= "put your JS code";
 ```
-npm run test
+Vue
+```HTML
+<FluidInput title=cats :inputInstructions="item">
 ```
-
-### Lints and fixes files
+```JS
+// In your export default
+data(){
+return{
+	input:{
+		name:"Cats",
+		type:"text"
+		}
+	}
+}
 ```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
