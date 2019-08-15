@@ -13,13 +13,7 @@ export default {
   },
   data() {
     return {
-      title: "MyForm",
-
-      user: {
-        name: "",
-        email: ""
-      },
-
+      title: "Yunior da king",
       data: [
         { type: "text", key: "name", name: "Nombre del Gato" },
         { type: "date", key: "date", name: "Fecha de nacimiento" },

@@ -1,6 +1,6 @@
 <template>
   <div class="fluid-form">
-    <p>{{title}}</p>
+    <p class="title">{{title}}</p>
     <div v-for="input in inputs">
       <FluidInput :inputInstructions="input" class="FluidInput"></FluidInput>
     </div>
@@ -45,6 +45,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.title {
+  text-align: left;
+}
 .fluid-form {
   border: gray;
   border-style: solid;

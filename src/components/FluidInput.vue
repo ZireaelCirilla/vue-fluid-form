@@ -4,7 +4,7 @@
     <input
       :type="type"
       v-model="value"
-      :class="inputInstructions.type"
+      :class="[inputInstructions.type, inputInstructions.type=='password' ? 'passwordWidth' : '' ]"
       :list="inputInstructions.type == 'email' ? 'domains': ''"
     />
     <div v-if="inputInstructions.type == 'password'" id="togglePassword-container">
@@ -51,7 +51,7 @@ export default {
 <style scoped>
 input {
   padding: 5px;
-  flex-basis: 90%;
+  flex-basis: 99%;
   border: 0;
   background-color: rgba(170, 170, 170, 0);
   outline: 0;
@@ -72,13 +72,8 @@ p {
   background-color: rgba(170, 170, 170, 0.123);
   text-align: left;
 }
-.text {
-}
-.date {
-}
-.password {
-}
-.email {
+.passwordWidth {
+  flex-basis: 90% !important;
 }
 #togglePassword {
   background-color: rgba(170, 170, 170, 0.301);
@@ -89,6 +84,7 @@ p {
   outline: 0;
   transition: 250ms;
 }
+
 #togglePassword:active {
   transform: scale(1.05);
 }
