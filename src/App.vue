@@ -1,24 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <FluidForm :title="title" :update="false" :inputs="data" @create="create"></FluidForm>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import FluidForm from "./components/FluidForm";
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    FluidForm
+  },
+  data() {
+    return {
+      title: "MyForm",
+
+      user: {
+        name: "",
+        email: ""
+      },
+
+      data: [
+        { type: "text", key: "name" },
+        { type: "date", key: "date" },
+        { type: "email", key: "email del usuario" },
+        { type: "password" }
+      ]
+    };
+  },
+  methods: {
+    create(value) {
+      // this.axios
+      console.log(value);
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
