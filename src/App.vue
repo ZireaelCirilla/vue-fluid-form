@@ -21,10 +21,10 @@ export default {
       },
 
       data: [
-        { type: "text", key: "name" },
-        { type: "date", key: "date" },
-        { type: "email", key: "email del usuario" },
-        { type: "password" }
+        { type: "text", key: "name", name: "Nombre del Gato" },
+        { type: "date", key: "date", name: "Fecha de nacimiento" },
+        { type: "email", key: "email del usuario", name: "Email del dueño" },
+        { type: "password", name: "Contraseña" }
       ]
     };
   },

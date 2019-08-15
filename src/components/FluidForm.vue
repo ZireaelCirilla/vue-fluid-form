@@ -1,12 +1,15 @@
 <template>
   <div class="fluid-form">
+    <p>{{title}}</p>
     <div v-for="input in inputs">
       <FluidInput :inputInstructions="input" class="FluidInput"></FluidInput>
     </div>
-    <button>Cancel</button>
-    <button
-      @click="$emit(update ? 'update' : 'create', sendValues())"
-    >{{update ? 'Update' : 'Create'}}</button>
+    <div class="footer">
+      <button>Cancel</button>
+      <button
+        @click="$emit(update ? 'update' : 'create', sendValues())"
+      >{{update ? 'Update' : 'Create'}}</button>
+    </div>
   </div>
 </template>
 
@@ -53,6 +56,10 @@ export default {
 .FluidInput {
   margin: 0.5%;
 }
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}
 button {
   background-color: rgba(170, 170, 170, 0.301);
   border: 0;
@@ -60,6 +67,9 @@ button {
   border-radius: 5px;
   outline: 0;
   transition: 250ms;
+  width: 10%;
+  height: 25px;
+  margin: 5px;
 }
 button:active {
   transform: scale(1.05);

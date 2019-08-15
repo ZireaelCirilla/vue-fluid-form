@@ -3,7 +3,7 @@
     <p v-if="inputInstructions.name">{{inputInstructions.name}}:</p>
     <input
       :type="type"
-      v-model="inputInstructions.value"
+      v-model="value"
       :class="inputInstructions.type"
       :list="inputInstructions.type == 'email' ? 'domains': ''"
     />
@@ -15,18 +15,9 @@
     </div>
     <div v-if="inputInstructions.type == 'email'">
       <datalist id="domains">
-        <option
-          v-if="!inputInstructions.value.includes(this.gmail)"
-          :value="inputInstructions.value + this.gmail"
-        ></option>
-        <option
-          v-if="!inputInstructions.value.includes(this.hotmail)"
-          :value="inputInstructions.value+ this.hotmail"
-        ></option>
-        <option
-          v-if="!inputInstructions.value.includes(this.yahoo)"
-          :value="inputInstructions.value+ this.yahoo"
-        ></option>
+        <option v-if="!this.value.includes(this.gmail)" :value="this.value + this.gmail"></option>
+        <option v-if="!this.value.includes(this.hotmail)" :value="this.value+ this.hotmail"></option>
+        <option v-if="!this.value.includes(this.yahoo)" :value="this.value+ this.yahoo"></option>
       </datalist>
     </div>
   </div>
@@ -38,15 +29,19 @@ export default {
   props: ["inputInstructions"],
   data() {
     return {
+      value: this.inputInstructions.value,
+      type: this.inputInstructions.type,
       gmail: "@gmail.com",
       hotmail: "@hotmail.com",
       yahoo: "@yahoo.com"
     };
   },
   created: function() {},
-  computed: {
-    type() {
-      return this.inputInstructions.type;
+  computed: {},
+  watch: {
+    value: function(val) {
+      this.value = val;
+      this.inputInstructions.value = val;
     }
   }
 };
@@ -63,7 +58,9 @@ input {
 }
 p {
   margin: 0;
-  margin-right: 5px;
+  font-size: 14px;
+  padding: 5px;
+  flex-basis: 100%;
 }
 .fluid-input {
   display: flex;
@@ -73,6 +70,7 @@ p {
   border-radius: 5px;
   border-color: gray;
   background-color: rgba(170, 170, 170, 0.123);
+  text-align: left;
 }
 .text {
 }
@@ -85,8 +83,8 @@ p {
 #togglePassword {
   background-color: rgba(170, 170, 170, 0.301);
   border: 0;
-  height: 100%;
-  width: 100%;
+  height: 80%;
+  width: 95%;
   border-radius: 5px;
   outline: 0;
   transition: 250ms;
